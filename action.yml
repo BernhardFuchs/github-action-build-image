@@ -1,0 +1,21 @@
+name: docker-build
+description: Build docker image
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.image_name }}
+    - ${{ inputs.image_tag }}
+    - ${{ inputs.path_to_dockerfile }}
+inputs:
+  image_name:
+    description: Name of docker image
+    required: true
+  image_tag:
+    description: Tag of docker image
+    required: false
+    default: latest
+  path_to_dockerfile:
+    description: Path to dockerfile
+    required: false
+    default: Dockerfile
